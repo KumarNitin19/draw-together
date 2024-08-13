@@ -12,10 +12,35 @@
     <title>Draw Together</title>
   </head>
   <body>
-    <main>
-      <header>
-        <div>Draw Together</div>
-      </header>
+    <main class="container">
+      <section class="tool-bar">
+        <div class="row">
+          <label for="" class="title">Shapes</label>
+          <ul class="options">
+            <li class="option">
+              <img src="" alt="Rectangle" />
+              <span>Reactangle</span>
+            </li>
+            <li class="option">
+              <img src="" alt="Circle" />
+              <span>Circle</span>
+            </li>
+            <li class="option">
+              <img src="" alt="Triangle" />
+              <span>Triangle</span>
+            </li>
+            <li class="option">
+              <img src="" alt="Square" />
+              <span>Square</span>
+            </li>
+            <li class="option">
+              <input type="checkbox" name="Fill color" id="fill-color" />
+              <label for="fill-color">Fill Color</label>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="drawing-board"></section>
     </main>
   </body>
   <script type="module" src="./index.js"></script>
