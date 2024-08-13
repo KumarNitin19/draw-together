@@ -1,0 +1,9 @@
+<svg 
+    focusable="false" 
+    aria-hidden="true" 
+    viewBox="0 0 24 24" 
+    data-testid="RectangleOutlinedIcon" 
+    tabindex="-1" 
+    title="RectangleOutlined">
+    <path d="M2 4v16h20V4zm18 14H4V6h16z"></path>
+</svg>
