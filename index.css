@@ -14,13 +14,16 @@ body {
   height: 100%;
   width: 100%;
   background-color: whitesmoke;
+  overflow: auto;
 }
 
 .tool-bar {
   position: absolute;
-  width: fit-content;
   top: 10px;
   left: 10px;
+  width: fit-content;
+  display: grid;
+  gap: 24px;
   padding: 16px;
   border-radius: 4px;
   -webkit-box-shadow: 0px 0px 11px 1px rgba(168, 168, 168, 1);
@@ -30,6 +33,23 @@ body {
 
 .tool-bar .options {
   list-style: none;
+}
+
+.tool-bar .options .option {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tool-bar .options .option:is(:hover, :active) {
+  color: #4897f8;
+}
+
+.tool-bar .row {
+  display: grid;
+  gap: 12px;
 }
 
 button {
