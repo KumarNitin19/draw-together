@@ -31,3 +31,11 @@ body {
 .tool-bar .options {
   list-style: none;
 }
+
+button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: none;
+  border: none;
+  cursor: pointer;
+}
