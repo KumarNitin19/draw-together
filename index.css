@@ -118,7 +118,7 @@ body {
   color: #fff;
   padding: 6px 12px;
   border-radius: 4px;
-  background-color: none;
+  background-color: transparent;
   border: none;
   outline: none;
   font-size: 0.9rem;
@@ -128,7 +128,7 @@ body {
 .buttons .clear-canvas {
   color: #6c757d;
   border: 1px solid #6c757d;
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
 }
 
 .buttons .clear-canvas:hover {
@@ -136,6 +136,16 @@ body {
   color: #fff;
 }
 
+.buttons .save-as-image {
+  background-color: #4a98f7;
+  border: 1px solid #4a98f7;
+  transition: all 0.3 ease;
+}
+
+.buttons .save-as-image:hover {
+  background-color: #4290f0;
+  color: #fff;
+}
 .drawing-board {
   flex: 1;
   background-color: whitesmoke;
