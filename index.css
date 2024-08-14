@@ -117,6 +117,10 @@ button {
   transform: translate(-50%, -50%);
 }
 
+.colors .options .option:first-child::before {
+  border-color: #ccc;
+}
+
 .drawing-board {
   flex: 1;
   background-color: whitesmoke;
