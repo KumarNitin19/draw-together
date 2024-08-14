@@ -56,14 +56,6 @@ body {
   gap: 12px;
 }
 
-button {
-  padding: 6px 12px;
-  border-radius: 4px;
-  background-color: none;
-  border: none;
-  cursor: pointer;
-}
-
 #fill-color:checked ~ label {
   color: #4897f8;
 }
@@ -119,6 +111,29 @@ button {
 
 .colors .options .option:first-child::before {
   border-color: #ccc;
+}
+
+.buttons button {
+  width: 100%;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: none;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.buttons .clear-canvas {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  transition: all 0.3 ease;
+}
+
+.buttons .clear-canvas:hover {
+  background-color: #6c757d;
+  color: #fff;
 }
 
 .drawing-board {
