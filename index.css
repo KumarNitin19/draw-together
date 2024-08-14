@@ -13,11 +13,12 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: whitesmoke;
+  display: flex;
   overflow: auto;
 }
 
 .tool-bar {
+  background-color: white;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -26,9 +27,7 @@ body {
   gap: 24px;
   padding: 16px;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 0px 11px 1px rgba(168, 168, 168, 1);
-  -moz-box-shadow: 0px 0px 11px 1px rgba(168, 168, 168, 1);
-  box-shadow: 0px 0px 11px 1px rgba(168, 168, 168, 1);
+  box-shadow: 0px 0px 6px 0px rgba(168, 168, 168, 1);
 }
 
 .tool-bar .options {
@@ -43,7 +42,12 @@ body {
   cursor: pointer;
 }
 
-.tool-bar .options .option:is(:hover, :active) {
+.tool-bar .options .option:is(:hover, .active) img {
+  filter: invert(70%) sepia(90%) saturate(3000%) hue-rotate(900deg)
+    brightness(100%) contrast(100%);
+}
+
+.tool-bar .options .option:is(:hover, .active) {
   color: #4897f8;
 }
 
@@ -58,4 +62,13 @@ button {
   background-color: none;
   border: none;
   cursor: pointer;
+}
+
+#fill-color:checked ~ label {
+  color: #4897f8;
+}
+
+.drawing-board {
+  flex: 1;
+  background-color: whitesmoke;
 }
