@@ -68,6 +68,55 @@ button {
   color: #4897f8;
 }
 
+.option #size-slider {
+  height: 4px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.colors .options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colors .options .option {
+  height: 16px;
+  width: 16px;
+  padding: 0;
+  border-radius: 4px;
+  position: relative;
+}
+
+.colors .options .option:nth-child(1) {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+}
+.colors .options .option:nth-child(2) {
+  background-color: #000;
+}
+.colors .options .option:nth-child(3) {
+  background-color: #e02020;
+}
+.colors .options .option:nth-child(4) {
+  background-color: #6dd400;
+}
+.colors .options .option:nth-child(5) {
+  background-color: #4a98f7;
+}
+
+.colors .options .option:hover::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  background-color: inherit;
+  border-radius: inherit;
+  border: 0.5px solid #fff;
+  transform: translate(-50%, -50%);
+}
+
 .drawing-board {
   flex: 1;
   background-color: whitesmoke;
