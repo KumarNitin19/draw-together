@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Draw Together</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -9,7 +10,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet" />
-    <title>Draw Together</title>
+    <script defer type="module" src="./index.js"></script>
   </head>
   <body>
     <main class="container">
@@ -85,8 +86,9 @@
           <button class="save-as-image">Save As Image</button>
         </div>
       </section>
-      <section class="drawing-board"></section>
+      <section class="drawing-board">
+        <canvas></canvas>
+      </section>
     </main>
   </body>
-  <script type="module" src="./index.js"></script>
 </html>

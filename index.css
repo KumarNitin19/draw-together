@@ -155,3 +155,8 @@ body {
   flex: 1;
   background-color: whitesmoke;
 }
+
+.drawing-board canvas {
+  height: 100%;
+  width: 100%;
+}
