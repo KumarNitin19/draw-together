@@ -4,7 +4,7 @@ let isDrawing = false,
   brushWidth = 5;
 
 const canvas = document.querySelector("canvas"),
-  toolBtns = document.querySelectorAll("");
+  toolBtns = document.querySelectorAll(".tool");
 ctx = canvas.getContext("2d");
 
 window.addEventListener("load", function () {
@@ -27,6 +27,15 @@ const drawing = (e) => {
   ctx.lineTo(e.offsetX, e.offsetY); // creating line according to mouse pointer
   ctx.stroke(); // draw/filling line with color
 };
+
+toolBtns.forEach((btn) => {
+  // adding click event on tool option
+  btn.addEventListener("click", () => {
+    // removing active class from the previous option and adding on current clicked option
+    document.querySelector(".options .active")?.classList.remove("active");
+    btn.classList.add("active");
+  });
+});
 
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mousemove", drawing);
