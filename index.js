@@ -32,10 +32,10 @@ function stopDrawing() {
   isDrawing = false;
 }
 
+// function to draw a circle
 function drawRect(e) {
   // if fill color isn't checked draw a rect with border else draw rect with background
   if (!fillColor.checked) {
-    // creating circle according mouse pointer
     return ctx.strokeRect(
       e.offsetX,
       e.offsetY,
@@ -51,6 +51,20 @@ function drawRect(e) {
   );
 }
 
+// function to draw a circle
+function drawCircle(e) {
+  ctx.beginPath(); // creating a new path to draw circle
+  // getting radius of circle based on mouse pointer
+  let radius = Math.sqrt(
+    Math.pow(prevMouseX - e.offsetX, 2) + Math.pow(prevMouseY - e.offsetY, 2)
+  );
+  ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+  if (!fillColor.checked) {
+    return ctx.stroke();
+  }
+  ctx.fill();
+}
+
 const drawing = (e) => {
   if (!isDrawing) return; // if drawing false then return from here!
   ctx.putImageData(snapshot, 0, 0); // adding copied canvas data to this canvas
@@ -59,6 +73,8 @@ const drawing = (e) => {
     ctx.stroke(); // draw/filling line with color
   } else if (selectedTool === "rectangle") {
     drawRect(e);
+  } else if (selectedTool === "circle") {
+    drawCircle(e);
   }
 };
 
