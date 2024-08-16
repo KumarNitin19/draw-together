@@ -96,7 +96,8 @@ body {
   background-color: #4a98f7;
 }
 
-.colors .options .option:hover::before {
+.colors .options .option:hover::before,
+.colors .options .selected::before {
   position: absolute;
   content: "";
   top: 50%;

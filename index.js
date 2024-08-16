@@ -6,12 +6,14 @@ let prevMouseX,
   snapshot,
   isDrawing = false,
   selectedTool = "brush",
-  brushWidth = 5;
+  brushWidth = 5,
+  selectedColor = "#000";
 
 const canvas = document.querySelector("canvas"),
   toolBtns = document.querySelectorAll(".tool"),
   fillColor = document.querySelector("#fill-color"),
   sizeSlider = document.querySelector("#size-slider"),
+  colorBtns = document.querySelectorAll(".colors .option"),
   ctx = canvas.getContext("2d");
 
 window.addEventListener("load", function () {
@@ -25,6 +27,8 @@ function startDrawing(e) {
   prevMouseY = e.offsetY; // passing current mouseY position as prevMouseY value
   ctx.beginPath(); //create a new path to draw
   ctx.lineWidth = brushWidth; // passing brush size as line width
+  ctx.strokeStyle = selectedColor;
+  ctx.fillStyle = selectedColor;
   // copying canvas data and passing it as snapshot value
   snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
@@ -106,6 +110,18 @@ toolBtns.forEach((btn) => {
 });
 
 sizeSlider.addEventListener("change", () => (brushWidth = sizeSlider.value));
+
+colorBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // removing selected class from the previous option and adding on current clicked option
+    document.querySelector(".options .selected")?.classList.remove("selected");
+    btn.classList.add("selected");
+    // getting selected color value
+    selectedColor = window
+      .getComputedStyle(btn)
+      .getPropertyValue("background-color");
+  });
+});
 
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mousemove", drawing);
