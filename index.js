@@ -16,11 +16,19 @@ const canvas = document.querySelector("canvas"),
   colorBtns = document.querySelectorAll(".colors .option"),
   colorPicker = document.querySelector("#color-picker"),
   clearCanvas = document.querySelector("#clear-canvas"),
+  saveAsImage = document.querySelector("#save-as-image"),
   ctx = canvas.getContext("2d");
+
+function setCanvasBackground() {
+  ctx.fillStyle = "whitesmoke";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = selectedColor;
+}
 
 window.addEventListener("load", function () {
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
+  setCanvasBackground();
 });
 
 function startDrawing(e) {
@@ -151,9 +159,18 @@ colorPicker.addEventListener("change", () => {
   selectedColor = colorPicker.value;
 });
 
-clearCanvas.addEventListener("click", () =>
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-);
+clearCanvas.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  setCanvasBackground();
+});
+
+saveAsImage.addEventListener("click", () => {
+  const link = document.createElement("a");
+  canvas.style.background = "#fff";
+  link.href = canvas.toDataURL();
+  link.download = `${Date.now()}.jpg`;
+  link.click();
+});
 
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mousemove", drawing);
