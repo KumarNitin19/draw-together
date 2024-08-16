@@ -14,6 +14,8 @@ const canvas = document.querySelector("canvas"),
   fillColor = document.querySelector("#fill-color"),
   sizeSlider = document.querySelector("#size-slider"),
   colorBtns = document.querySelectorAll(".colors .option"),
+  colorPicker = document.querySelector("#color-picker"),
+  clearCanvas = document.querySelector("#clear-canvas"),
   ctx = canvas.getContext("2d");
 
 window.addEventListener("load", function () {
@@ -27,8 +29,8 @@ function startDrawing(e) {
   prevMouseY = e.offsetY; // passing current mouseY position as prevMouseY value
   ctx.beginPath(); //create a new path to draw
   ctx.lineWidth = brushWidth; // passing brush size as line width
-  ctx.strokeStyle = selectedColor;
-  ctx.fillStyle = selectedColor;
+  ctx.strokeStyle = selectedColor; // passing selectedColor as stroke style
+  ctx.fillStyle = selectedColor; // passing selectedColor as fill style
   // copying canvas data and passing it as snapshot value
   snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
@@ -70,6 +72,7 @@ function drawCircle(e) {
   ctx.fill();
 }
 
+// function to draw a triangle
 function drawTriangle(e) {
   ctx.beginPath(); // creating a new path to draw triangle
   ctx.moveTo(prevMouseX, prevMouseY); // moving triangle to mouse pointer
@@ -80,6 +83,26 @@ function drawTriangle(e) {
     return ctx.stroke();
   }
   ctx.fill();
+}
+
+// function to draw a square
+function drawSquare(e) {
+  ctx.beginPath();
+  // if fill color isn't checked draw a rect with border else draw rect with background
+  if (!fillColor.checked) {
+    return ctx.strokeRect(
+      e.offsetX,
+      e.offsetY,
+      prevMouseX - e.offsetX,
+      prevMouseX - e.offsetX
+    );
+  }
+  ctx.fillRect(
+    e.offsetX,
+    e.offsetY,
+    prevMouseX - e.offsetX,
+    prevMouseX - e.offsetX
+  );
 }
 
 const drawing = (e) => {
@@ -94,8 +117,8 @@ const drawing = (e) => {
     drawCircle(e);
   } else if (selectedTool === "triangle") {
     drawTriangle(e);
-  } else if (selectedTool === "sqaure") {
-    drawCircle(e);
+  } else if (selectedTool === "square") {
+    drawSquare(e);
   }
 };
 
@@ -122,6 +145,15 @@ colorBtns.forEach((btn) => {
       .getPropertyValue("background-color");
   });
 });
+
+colorPicker.addEventListener("change", () => {
+  colorPicker.parentElement.style.backgroundColor = colorPicker.value;
+  selectedColor = colorPicker.value;
+});
+
+clearCanvas.addEventListener("click", () =>
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+);
 
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mousemove", drawing);
