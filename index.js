@@ -11,6 +11,7 @@ let prevMouseX,
 const canvas = document.querySelector("canvas"),
   toolBtns = document.querySelectorAll(".tool"),
   fillColor = document.querySelector("#fill-color"),
+  sizeSlider = document.querySelector("#size-slider"),
   ctx = canvas.getContext("2d");
 
 window.addEventListener("load", function () {
@@ -103,6 +104,8 @@ toolBtns.forEach((btn) => {
     selectedTool = btn.id;
   });
 });
+
+sizeSlider.addEventListener("change", () => (brushWidth = sizeSlider.value));
 
 canvas.addEventListener("mousedown", startDrawing);
 canvas.addEventListener("mousemove", drawing);
