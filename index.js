@@ -1,9 +1,11 @@
 console.log("Drawing app");
 
-let isDrawing = false;
+let isDrawing = false,
+  brushWidth = 5;
 
 const canvas = document.querySelector("canvas"),
-  ctx = canvas.getContext("2d");
+  toolBtns = document.querySelectorAll("");
+ctx = canvas.getContext("2d");
 
 window.addEventListener("load", function () {
   canvas.width = canvas.offsetWidth;
@@ -12,6 +14,8 @@ window.addEventListener("load", function () {
 
 function startDrawing() {
   isDrawing = true;
+  ctx.beginPath(); //create a new path to draw
+  ctx.lineWidth = brushWidth; // passing brush size as line width
 }
 
 function stopDrawing() {
