@@ -65,6 +65,18 @@ function drawCircle(e) {
   ctx.fill();
 }
 
+function drawTriangle(e) {
+  ctx.beginPath(); // creating a new path to draw triangle
+  ctx.moveTo(prevMouseX, prevMouseY); // moving triangle to mouse pointer
+  ctx.lineTo(e.offsetX, e.offsetY); // creating first line according to mouse pointer
+  ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY); // creating bottom line of traingle
+  ctx.closePath();
+  if (!fillColor.checked) {
+    return ctx.stroke();
+  }
+  ctx.fill();
+}
+
 const drawing = (e) => {
   if (!isDrawing) return; // if drawing false then return from here!
   ctx.putImageData(snapshot, 0, 0); // adding copied canvas data to this canvas
@@ -74,6 +86,10 @@ const drawing = (e) => {
   } else if (selectedTool === "rectangle") {
     drawRect(e);
   } else if (selectedTool === "circle") {
+    drawCircle(e);
+  } else if (selectedTool === "triangle") {
+    drawTriangle(e);
+  } else if (selectedTool === "sqaure") {
     drawCircle(e);
   }
 };
