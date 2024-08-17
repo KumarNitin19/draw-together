@@ -7,4 +7,6 @@ wsConnection.onerror = (e) => {
 };
 wsConnection.onmessage = (e) => {
   console.log(JSON.parse(e.data));
+
+  wsConnection.send(JSON.stringify({ type: "test", msg: "hello world" }));
 };
